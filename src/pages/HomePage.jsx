@@ -75,7 +75,7 @@ const HomePage = () => {
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
         {filteredFilms.map(film => (
           <div key={film.id} className="col">
-            <FilmCard film={film} />
+            <FilmCard film={film} categories={categories} />
           </div>
         ))}
       </div>

@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FilmCard = ({ film }) => {
+const FilmCard = ({ film, categories }) => {
+  // Cari kategori berdasarkan category_id
+  const category = categories.find(cat => cat.id === film.category_id);
+  const categoryName = category ? category.name : "No Category";
+
   return (
     <div className="card h-100">
       <img
@@ -17,8 +21,8 @@ const FilmCard = ({ film }) => {
         </p>
         {/* Tampilkan kategori film */}
         <p className="card-category">
-        <strong>Category: </strong> 
-          {film.category_name ? film.category_name : "No Category"}
+          <strong>Category: </strong> 
+          {categoryName}
         </p>
         <Link to={`/film/${film.id}`} className="btn btn-primary mt-auto">
           Lihat Detail
